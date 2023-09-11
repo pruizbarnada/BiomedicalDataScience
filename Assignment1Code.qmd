@@ -275,7 +275,7 @@ $$
 For the `scr.csv` dataset,
 
 -   Examine a summary of the distribution of serum creatinine and report the inter-quartile range.
--   If you suspect that some serum creatinine values may have been reported in µmol/L convert them to mg/dL by dividing by $88.42$.
+-   If you suspect that some serum creatinine values may have been reported in Âµmol/L convert them to mg/dL by dividing by $88.42$.
 -   Justify your choice of values to convert and examine the distribution of serum creatinine following any changes you have made.
 
 ```{r}
@@ -376,13 +376,13 @@ scr$outlier[scr$scr > lower.limit & scr$scr < upper.limit] <- "None"
 
 The serum creatinine (SCR) levels in blood are indicative of kidney function. SCR is a waste product in the blood, and high levels are typically associated with malfunctioning of the kidneys and possible renal disease ([eMedicineHealth](https://www.emedicinehealth.com/creatinine_blood_tests/article_em.htm "eMedicineHealth")). Normal ranges for SCR depend on age, sex, size and muscle mass, but the following can be taken as normal values for a healthy person, according to different sources ([Mayo Clinic](https://www.mayoclinic.org/tests-procedures/creatinine-test/about/pac-20384646 "Mayo Clinic"), [Mount Sinai](https://www.mountsinai.org/health-library/tests/creatinine-blood-test "Mount Sinai")):
 
--   Men: Approximately 0.7 - 1.3 mg/dL ( \~ 65.4 -119.3 µmol/L),
+-   Men: Approximately 0.7 - 1.3 mg/dL ( \~ 65.4 -119.3 Âµmol/L),
 
--   Women: Approximately 0.6 - 1.1 mg/dL ( \~ 52.2 to 91.9 µmol/L).
+-   Women: Approximately 0.6 - 1.1 mg/dL ( \~ 52.2 to 91.9 Âµmol/L).
 
 SRC values above 1.3 mg/dL may be considered high, although for people with a single kidney it is normal to reach around 1.9 mg/dL in blood. Levels of SRC are associated with a risk for health when they surpass 5 mg/dL, for adults. In the case of infants, typical values are around 0.2 mg/dL, with risk to health being 2 mg/dL or more ([eMedicineHealth](https://www.emedicinehealth.com/creatinine_blood_tests/article_em.htm "eMedicineHealth")). On the contrary, low levels of SCR are not directly related with kidney malfunctioning, but are associated with low muscle mass, low protein intake, aging, pregnancy, or even liver disease in extreme cases ([NorthShore](https://www.northshore.org/healthresources/encyclopedia/encyclopedia.aspx?DocumentHwid=hw4322 "NorthShore")).
 
-In our dataset, the minimum SCR observed is 0.4 mg/dL, which is a really low value. When this is transformed to �mol/L units, the value obtained is 35.368 �mol/L. By exploring our dataset, we observe that there are 2 observations that whose SRC is higher than 35.368 - these are assumed to be collected in �mol/L, and are thus changed to mg/dL by dividing over 88.42. Aside from these, the following highest observations are 32 (corresponding to a 67 years old woman) and 24 (corresponding to a 68 years old man). These are extremely high values if measured in mg/dL, but extremely low if done in �mol/L (0.36 and 0.27 �mol/L respectively). Thus, it has been decided that these values are likely to have been collected with the correct units for patients with severe renal problems, and therefore no transformation is needed.
+In our dataset, the minimum SCR observed is 0.4 mg/dL, which is a really low value. When this is transformed to µmol/L units, the value obtained is 35.368 µmol/L. By exploring our dataset, we observe that there are 2 observations that whose SRC is higher than 35.368 - these are assumed to be collected in µmol/L, and are thus changed to mg/dL by dividing over 88.42. Aside from these, the following highest observations are 32 (corresponding to a 67 years old woman) and 24 (corresponding to a 68 years old man). These are extremely high values if measured in mg/dL, but extremely low if done in µmol/L (0.36 and 0.27 µmol/L respectively). Thus, it has been decided that these values are likely to have been collected with the correct units for patients with severe renal problems, and therefore no transformation is needed.
 
 After the transformation, the new distributions can be observed below. As we only changed the two most extreme values, the overall distribution has not changed much. However, now all the observations are contained within a way smaller range.
 
@@ -618,7 +618,7 @@ To link the two data files together, a third linker file `linker.csv` is provide
 -   Perform assertion checks to ensure that all identifiers in `cohort.csv` have been accounted for in the final table and that any validation fields are consistent between sets.
 -   After the checks are complete, drop the identifier that originated from `lab1.csv` dataset `LABID`.
 -   Ensure that a single `yob` field remains and rename it to `yob`.
--   Ensure that the `albumin` field is converted to a factor and the ordering of the factor is `1=“normo”`, `2=“micro”`, `3=“macro”`.
+-   Ensure that the `albumin` field is converted to a factor and the ordering of the factor is `1=ânormoâ`, `2=âmicroâ`, `3=âmacroâ`.
 -   Print first $10$ values of the new dataset using `head()`.
 
 ```{r}
